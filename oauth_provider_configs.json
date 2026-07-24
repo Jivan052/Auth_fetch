@@ -1,0 +1,54 @@
+{
+  "Salesforce": {
+    "authorize_url": "https://login.salesforce.com/services/oauth2/authorize",
+    "token_url": "https://login.salesforce.com/services/oauth2/token",
+    "scopes": [
+      "api",
+      "refresh_token"
+    ],
+    "client_id_env": "SALESFORCE_CLIENT_ID",
+    "client_secret_env": "SALESFORCE_CLIENT_SECRET",
+    "test_endpoint": "https://login.salesforce.com/services/oauth2/userinfo"
+  },
+  "HubSpot": {
+    "authorize_url": "https://app.hubspot.com/oauth/authorize",
+    "token_url": "https://api.hubapi.com/oauth/v1/token",
+    "scopes": [
+      "crm.objects.contacts.read",
+      "crm.objects.contacts.write"
+    ],
+    "client_id_env": "HUBSPOT_CLIENT_ID",
+    "client_secret_env": "HUBSPOT_CLIENT_SECRET",
+    "test_endpoint": "https://api.hubapi.com/account-info/v3/details"
+  },
+  "Slack": {
+    "authorize_url": "https://slack.com/oauth/v2/authorize",
+    "token_url": "https://slack.com/api/oauth.v2.access",
+    "scopes": [
+      "channels:read",
+      "chat:write"
+    ],
+    "client_id_env": "SLACK_CLIENT_ID",
+    "client_secret_env": "SLACK_CLIENT_SECRET",
+    "test_endpoint": "https://slack.com/api/auth.test"
+  },
+  "GitHub": {
+    "authorize_url": "https://github.com/login/oauth/authorize",
+    "token_url": "https://github.com/login/oauth/access_token",
+    "scopes": [
+      "repo",
+      "read:user"
+    ],
+    "client_id_env": "GITHUB_CLIENT_ID",
+    "client_secret_env": "GITHUB_CLIENT_SECRET",
+    "test_endpoint": "https://api.github.com/user"
+  },
+  "Notion": {
+    "authorize_url": "https://api.notion.com/v1/oauth/authorize",
+    "token_url": "https://api.notion.com/v1/oauth/token",
+    "scopes": [],
+    "client_id_env": "NOTION_CLIENT_ID",
+    "client_secret_env": "NOTION_CLIENT_SECRET",
+    "test_endpoint": "https://api.notion.com/v1/users/me"
+  }
+}

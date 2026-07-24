@@ -1,0 +1,668 @@
+[
+  {
+    "name": "Salesforce",
+    "category": "CRM and Sales",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2"
+    ],
+    "self_serve": true,
+    "gating": "Free Developer Edition org self-serve at developer.salesforce.com",
+    "docs_url": "https://developer.salesforce.com/docs/apis",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Salesforce"
+  },
+  {
+    "name": "HubSpot",
+    "category": "CRM and Sales",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API key (private app token)"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve, private app tokens instant",
+    "docs_url": "https://developers.hubspot.com/docs/api/overview",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "HubSpot"
+  },
+  {
+    "name": "Pipedrive",
+    "category": "CRM and Sales",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "API key (token)",
+      "OAuth2"
+    ],
+    "self_serve": true,
+    "gating": "14-day free trial, API token instant",
+    "docs_url": "https://developers.pipedrive.com/docs/api/v1",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Pipedrive"
+  },
+  {
+    "name": "Twenty",
+    "category": "CRM and Sales",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "API key",
+      "OAuth2"
+    ],
+    "self_serve": true,
+    "gating": "Open source, self-host or free cloud tier",
+    "docs_url": "https://twenty.com/developers",
+    "existing_mcp": true,
+    "confidence": "medium",
+    "oauth_config_ref": "Twenty"
+  },
+  {
+    "name": "Podio",
+    "category": "CRM and Sales",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve, app largely in maintenance mode",
+    "docs_url": "https://developers.podio.com/",
+    "existing_mcp": false,
+    "confidence": "medium",
+    "oauth_config_ref": "Podio"
+  },
+  {
+    "name": "Zoho CRM",
+    "category": "CRM and Sales",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2"
+    ],
+    "self_serve": true,
+    "gating": "Free trial self-serve",
+    "docs_url": "https://www.zoho.com/crm/developer/docs/api/v6/",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Zoho CRM"
+  },
+  {
+    "name": "Copper",
+    "category": "CRM and Sales",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "API key",
+      "OAuth2"
+    ],
+    "self_serve": true,
+    "gating": "14-day free trial",
+    "docs_url": "https://developer.copper.com/",
+    "existing_mcp": false,
+    "confidence": "high",
+    "oauth_config_ref": "Copper"
+  },
+  {
+    "name": "Zendesk",
+    "category": "Support and Helpdesk",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API token (Basic)"
+    ],
+    "self_serve": true,
+    "gating": "Free trial self-serve",
+    "docs_url": "https://developer.zendesk.com/api-reference/",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Zendesk"
+  },
+  {
+    "name": "Intercom",
+    "category": "Support and Helpdesk",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API key"
+    ],
+    "self_serve": true,
+    "gating": "14-day free trial",
+    "docs_url": "https://developers.intercom.com/docs/references/rest-api/",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Intercom"
+  },
+  {
+    "name": "Front",
+    "category": "Support and Helpdesk",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API token"
+    ],
+    "self_serve": true,
+    "gating": "Trial available, but core plans are paid",
+    "docs_url": "https://dev.frontapp.com/",
+    "existing_mcp": false,
+    "confidence": "high",
+    "oauth_config_ref": "Front"
+  },
+  {
+    "name": "Help Scout",
+    "category": "Support and Helpdesk",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API key"
+    ],
+    "self_serve": true,
+    "gating": "15-day free trial",
+    "docs_url": "https://developer.helpscout.com/",
+    "existing_mcp": false,
+    "confidence": "high",
+    "oauth_config_ref": "Help Scout"
+  },
+  {
+    "name": "Gorgias",
+    "category": "Support and Helpdesk",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2"
+    ],
+    "self_serve": true,
+    "gating": "7-day free trial",
+    "docs_url": "https://developers.gorgias.com/",
+    "existing_mcp": false,
+    "confidence": "high",
+    "oauth_config_ref": "Gorgias"
+  },
+  {
+    "name": "Slack",
+    "category": "Communications and Messaging",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2"
+    ],
+    "self_serve": true,
+    "gating": "Free workspace self-serve",
+    "docs_url": "https://api.slack.com/",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Slack"
+  },
+  {
+    "name": "Zoho Cliq",
+    "category": "Communications and Messaging",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve",
+    "docs_url": "https://www.zoho.com/cliq/help/platform/",
+    "existing_mcp": false,
+    "confidence": "medium",
+    "oauth_config_ref": "Zoho Cliq"
+  },
+  {
+    "name": "Lark (Larksuite)",
+    "category": "Communications and Messaging",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "App credentials"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve",
+    "docs_url": "https://open.larksuite.com/document",
+    "existing_mcp": true,
+    "confidence": "medium",
+    "oauth_config_ref": "Lark (Larksuite)"
+  },
+  {
+    "name": "Discord",
+    "category": "Communications and Messaging",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "Bot token"
+    ],
+    "self_serve": true,
+    "gating": "Free, instant bot token",
+    "docs_url": "https://discord.com/developers/docs/intro",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Discord"
+  },
+  {
+    "name": "Aircall",
+    "category": "Communications and Messaging",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API key (Basic)"
+    ],
+    "self_serve": true,
+    "gating": "Free trial self-serve",
+    "docs_url": "https://developer.aircall.io/",
+    "existing_mcp": false,
+    "confidence": "medium",
+    "oauth_config_ref": "Aircall"
+  },
+  {
+    "name": "GoHighLevel",
+    "category": "Marketing Ads Email Social",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API key"
+    ],
+    "self_serve": true,
+    "gating": "Trial via agency account signup",
+    "docs_url": "https://highlevel.stoplight.io/",
+    "existing_mcp": false,
+    "confidence": "medium",
+    "oauth_config_ref": "GoHighLevel"
+  },
+  {
+    "name": "Mailchimp",
+    "category": "Marketing Ads Email Social",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API key"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve",
+    "docs_url": "https://mailchimp.com/developer/marketing/api/",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Mailchimp"
+  },
+  {
+    "name": "Klaviyo",
+    "category": "Marketing Ads Email Social",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API key"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve",
+    "docs_url": "https://developers.klaviyo.com/en/reference/api_overview",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Klaviyo"
+  },
+  {
+    "name": "Pinterest",
+    "category": "Marketing Ads Email Social",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2"
+    ],
+    "self_serve": true,
+    "gating": "Standard access self-serve; advanced ad scopes need app review",
+    "docs_url": "https://developers.pinterest.com/docs/getting-started/introduction/",
+    "existing_mcp": false,
+    "confidence": "medium",
+    "oauth_config_ref": "Pinterest"
+  },
+  {
+    "name": "Shopify",
+    "category": "Ecommerce",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API key (custom apps)"
+    ],
+    "self_serve": true,
+    "gating": "Free dev store self-serve",
+    "docs_url": "https://shopify.dev/docs/api",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Shopify"
+  },
+  {
+    "name": "BigCommerce",
+    "category": "Ecommerce",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API key"
+    ],
+    "self_serve": true,
+    "gating": "Free trial self-serve",
+    "docs_url": "https://developer.bigcommerce.com/docs/rest-management",
+    "existing_mcp": false,
+    "confidence": "high",
+    "oauth_config_ref": "BigCommerce"
+  },
+  {
+    "name": "Magento (Adobe Commerce)",
+    "category": "Ecommerce",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API key/token"
+    ],
+    "self_serve": true,
+    "gating": "Open-source edition self-hostable free; Adobe Commerce (enterprise) is contact-sales",
+    "docs_url": "https://developer.adobe.com/commerce/webapi/",
+    "existing_mcp": false,
+    "confidence": "medium",
+    "oauth_config_ref": "Magento (Adobe Commerce)"
+  },
+  {
+    "name": "Squarespace",
+    "category": "Ecommerce",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API key"
+    ],
+    "self_serve": true,
+    "gating": "Commerce API requires a paid Commerce plan",
+    "docs_url": "https://developers.squarespace.com/commerce-apis/overview",
+    "existing_mcp": false,
+    "confidence": "medium",
+    "oauth_config_ref": "Squarespace"
+  },
+  {
+    "name": "Ecwid",
+    "category": "Ecommerce",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2"
+    ],
+    "self_serve": true,
+    "gating": "Free plan self-serve",
+    "docs_url": "https://api-docs.ecwid.com/",
+    "existing_mcp": false,
+    "confidence": "medium",
+    "oauth_config_ref": "Ecwid"
+  },
+  {
+    "name": "Gumroad",
+    "category": "Ecommerce",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API key"
+    ],
+    "self_serve": true,
+    "gating": "Free account self-serve",
+    "docs_url": "https://help.gumroad.com/article/280-api",
+    "existing_mcp": false,
+    "confidence": "high",
+    "oauth_config_ref": "Gumroad"
+  },
+  {
+    "name": "GitHub",
+    "category": "Dev Infra Data platforms",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API key (PAT)"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve",
+    "docs_url": "https://docs.github.com/en/rest",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "GitHub"
+  },
+  {
+    "name": "Vercel",
+    "category": "Dev Infra Data platforms",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "API key (Bearer token)",
+      "OAuth2 (integrations)"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve",
+    "docs_url": "https://vercel.com/docs/rest-api",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Vercel"
+  },
+  {
+    "name": "Netlify",
+    "category": "Dev Infra Data platforms",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "Personal access token"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve",
+    "docs_url": "https://docs.netlify.com/api/get-started/",
+    "existing_mcp": false,
+    "confidence": "high",
+    "oauth_config_ref": "Netlify"
+  },
+  {
+    "name": "Supabase",
+    "category": "Dev Infra Data platforms",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "API key",
+      "OAuth2 (management API)"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve",
+    "docs_url": "https://supabase.com/docs/guides/api",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Supabase"
+  },
+  {
+    "name": "Snowflake",
+    "category": "Dev Infra Data platforms",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "Key-pair",
+      "Basic"
+    ],
+    "self_serve": true,
+    "gating": "Free trial self-serve",
+    "docs_url": "https://docs.snowflake.com/en/developer-guide/sql-api/index",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Snowflake"
+  },
+  {
+    "name": "Sentry",
+    "category": "Dev Infra Data platforms",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "API token (Bearer)",
+      "OAuth2"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve",
+    "docs_url": "https://docs.sentry.io/api/",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Sentry"
+  },
+  {
+    "name": "Notion",
+    "category": "Productivity and PM",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API key (internal integration token)"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve",
+    "docs_url": "https://developers.notion.com/reference/intro",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Notion"
+  },
+  {
+    "name": "Airtable",
+    "category": "Productivity and PM",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "Personal access token"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve",
+    "docs_url": "https://airtable.com/developers/web/api/introduction",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Airtable"
+  },
+  {
+    "name": "Linear",
+    "category": "Productivity and PM",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API key"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve",
+    "docs_url": "https://developers.linear.app/docs",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Linear"
+  },
+  {
+    "name": "Jira",
+    "category": "Productivity and PM",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API token (Basic)"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve",
+    "docs_url": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Jira"
+  },
+  {
+    "name": "Asana",
+    "category": "Productivity and PM",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "Personal access token"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve",
+    "docs_url": "https://developers.asana.com/docs",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Asana"
+  },
+  {
+    "name": "Monday.com",
+    "category": "Productivity and PM",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API token"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve",
+    "docs_url": "https://developer.monday.com/api-reference/docs",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Monday.com"
+  },
+  {
+    "name": "ClickUp",
+    "category": "Productivity and PM",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API token"
+    ],
+    "self_serve": true,
+    "gating": "Free tier self-serve",
+    "docs_url": "https://developer.clickup.com/docs",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "ClickUp"
+  },
+  {
+    "name": "Smartsheet",
+    "category": "Productivity and PM",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "API token"
+    ],
+    "self_serve": true,
+    "gating": "30-day free trial",
+    "docs_url": "https://developers.smartsheet.com/api/smartsheet",
+    "existing_mcp": false,
+    "confidence": "high",
+    "oauth_config_ref": "Smartsheet"
+  },
+  {
+    "name": "Harvest",
+    "category": "Productivity and PM",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2",
+      "Personal access token"
+    ],
+    "self_serve": true,
+    "gating": "Free trial self-serve",
+    "docs_url": "https://help.getharvest.com/api-v2/",
+    "existing_mcp": false,
+    "confidence": "high",
+    "oauth_config_ref": "Harvest"
+  },
+  {
+    "name": "QuickBooks",
+    "category": "Finance and Fintech",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2"
+    ],
+    "self_serve": true,
+    "gating": "Free sandbox self-serve; production app requires Intuit review",
+    "docs_url": "https://developer.intuit.com/app/developer/qbo/docs/get-started",
+    "existing_mcp": false,
+    "confidence": "high",
+    "oauth_config_ref": "QuickBooks"
+  },
+  {
+    "name": "Xero",
+    "category": "Finance and Fintech",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "OAuth2"
+    ],
+    "self_serve": true,
+    "gating": "Free demo company self-serve for dev",
+    "docs_url": "https://developer.xero.com/documentation/",
+    "existing_mcp": false,
+    "confidence": "high",
+    "oauth_config_ref": "Xero"
+  },
+  {
+    "name": "Consensus",
+    "category": "AI Research Media",
+    "auth_flow_type": "oauth2",
+    "auth_methods": [
+      "API key (Bearer)",
+      "OAuth2 (MCP)"
+    ],
+    "self_serve": true,
+    "gating": "Free developer account self-serve for the quick_search API (rate-limited); unlimited/enterprise volume requires contact-sales",
+    "docs_url": "https://docs.consensus.app/",
+    "existing_mcp": true,
+    "confidence": "high",
+    "oauth_config_ref": "Consensus"
+  }
+]

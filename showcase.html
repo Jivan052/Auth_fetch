@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OAuth2 connection architecture</title>
+<style>
+  :root{
+    --ink:#1B2340;
+    --ink-soft:#4A5170;
+    --paper:#F6F7FB;
+    --panel:#FFFFFF;
+    --line:#E1E4EE;
+    --accent:#2E86AB;
+    --accent-soft:#E4F1F7;
+    --amber:#D98E28;
+    --mono: "SF Mono", "Fira Code", Consolas, monospace;
+    --sans: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:56px 24px 100px;}
+
+  header{margin-bottom:48px;}
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:700;
+    margin-bottom:10px;
+  }
+  h1{font-size:34px;margin:0 0 12px;letter-spacing:-0.01em;}
+  .sub{color:var(--ink-soft);font-size:16px;max-width:640px;}
+
+  section{margin:56px 0;}
+  h2{
+    font-size:20px;
+    margin:0 0 18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  h2 .tag{
+    font-family:var(--mono);
+    font-size:12px;
+    background:var(--ink);
+    color:#fff;
+    padding:3px 8px;
+    border-radius:5px;
+  }
+  p{color:var(--ink-soft);font-size:15px;}
+  p.lead{color:var(--ink);font-size:15.5px;}
+
+  /* --- why oauth2 first: stat row --- */
+  .stat-row{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    margin:24px 0;
+  }
+  .stat{
+    flex:1;
+    min-width:150px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px 20px;
+  }
+  .stat .num{font-size:28px;font-weight:700;color:var(--ink);}
+  .stat .label{font-size:13px;color:var(--ink-soft);margin-top:2px;}
+  .stat.hi{border-color:var(--accent);background:var(--accent-soft);}
+
+  /* --- 5 step flow --- */
+  .steps{border-left:2px solid var(--line);margin-left:18px;padding-left:0;}
+  .step{
+    position:relative;
+    padding:0 0 34px 36px;
+  }
+  .step:last-child{padding-bottom:0;}
+  .step::before{
+    content:attr(data-n);
+    position:absolute;
+    left:-19px;
+    top:0;
+    width:36px;height:36px;
+    background:var(--ink);
+    color:#fff;
+    border-radius:50%;
+    font-family:var(--mono);
+    font-size:14px;
+    font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .step.use::before{background:var(--amber);}
+  .step h3{margin:2px 0 6px;font-size:16px;}
+  .step p{margin:0;font-size:14.5px;}
+  .step code.route{
+    display:inline-block;
+    margin-top:8px;
+    font-family:var(--mono);
+    font-size:12.5px;
+    background:var(--ink);
+    color:#B7E3FF;
+    padding:4px 9px;
+    border-radius:6px;
+  }
+  .step.use code.route{color:#FFE3B0;}
+
+  /* --- architecture diagram --- */
+  .arch{
+    display:flex;
+    align-items:stretch;
+    gap:0;
+    margin:28px 0 8px;
+  }
+  .box{
+    flex:1;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px;
+  }
+  .box h4{margin:0 0 8px;font-size:14px;}
+  .box ul{margin:0;padding-left:18px;font-size:13px;color:var(--ink-soft);}
+  .box ul li{margin-bottom:4px;}
+  .arrow{
+    display:flex;align-items:center;justify-content:center;
+    width:40px;color:var(--ink-soft);font-size:20px;
+  }
+  @media (max-width:640px){
+    .arch{flex-direction:column;}
+    .arrow{transform:rotate(90deg);width:100%;padding:6px 0;}
+  }
+
+  /* --- token storage --- */
+  pre{
+    background:var(--ink);
+    color:#DCE6F5;
+    padding:18px 20px;
+    border-radius:10px;
+    font-family:var(--mono);
+    font-size:13px;
+    overflow-x:auto;
+    line-height:1.6;
+  }
+  pre .k{color:#7FD1B9;}
+  pre .s{color:#F2C572;}
+  pre .c{color:#8A93B8;}
+
+  /* --- left out list --- */
+  .left-out{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-left:3px solid var(--amber);
+    border-radius:8px;
+    padding:18px 20px;
+  }
+  .left-out ul{margin:0;padding-left:20px;font-size:14px;color:var(--ink-soft);}
+  .left-out ul li{margin-bottom:6px;}
+  .left-out strong{color:var(--ink);}
+
+  footer{
+    margin-top:60px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Connection architecture</div>
+    <h1>Why OAuth2, and how the connection actually gets made</h1>
+    <p class="sub">One config-driven flow, five steps, covering the largest single group in the 100-app dataset — instead of 45 separate integrations.</p>
+  </header>
+
+  <section>
+    <h2>Why OAuth2 first</h2>
+    <p class="lead">The research pipeline already sorted every app by auth method. OAuth2 wasn't picked because it's the "modern" choice — it was picked because it's the biggest group that can share one implementation.</p>
+    <div class="stat-row">
+      <div class="stat hi">
+        <div class="num">45 / 100</div>
+        <div class="label">apps use OAuth2 — the single largest auth group</div>
+      </div>
+      <div class="stat">
+        <div class="num">1</div>
+        <div class="label">code path handles all 45 (Salesforce, HubSpot, Slack, GitHub, Notion, …)</div>
+      </div>
+      <div class="stat">
+        <div class="num">55</div>
+        <div class="label">remaining apps (API key / manually gated) — deliberately a separate problem</div>
+      </div>
+    </div>
+    <p>Every OAuth2 provider runs the same handshake — only the URLs and scopes differ. So the 45 apps become one set of routes plus one config file (<code>oauth_provider_configs.json</code>), not 45 bespoke integrations. The other 55 apps get self-serve key generation or a human-review queue — a different shape of problem, so it stays out of this file on purpose.</p>
+  </section>
+
+  <section>
+    <h2>The 5 steps <span class="tag">oauth_app.py</span></h2>
+    <p class="lead">This is the actual sequence — order matters here, so it's numbered for real, not for decoration.</p>
+    <div class="steps">
+      <div class="step" data-n="1">
+        <h3>User asks to connect an app</h3>
+        <p>They click "Connect Salesforce" (or whichever of the 45).</p>
+        <code class="route">GET /connect/&lt;app_name&gt;?user_id=alice</code>
+      </div>
+      <div class="step" data-n="2">
+        <h3>Redirect to the provider's consent screen</h3>
+        <p>Built from <code>oauth_provider_configs.json</code>: authorize_url, client_id (from an env var), scopes, and a random <code>state</code> value to prevent CSRF.</p>
+      </div>
+      <div class="step" data-n="3">
+        <h3>Provider redirects back with a code</h3>
+        <p>The user approved access. The provider sends them back with a short-lived authorization code.</p>
+        <code class="route">GET /callback/&lt;app_name&gt;?code=...&state=...</code>
+      </div>
+      <div class="step" data-n="4">
+        <h3>Exchange the code for a token</h3>
+        <p>One server-to-server POST to the provider's token_url, using client_id + client_secret. Comes back with an access_token (and often a refresh_token).</p>
+      </div>
+      <div class="step use" data-n="5">
+        <h3>Use the token — this is the part that matters</h3>
+        <p>Everything before this step only produces a token sitting in storage. This step proves the connection actually works by calling the app's real API with it.</p>
+        <code class="route">GET /call/&lt;app_name&gt;?user_id=alice</code>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How the pieces fit together</h2>
+    <p class="lead">One Flask file, driven entirely by config — no per-app code branches.</p>
+    <div class="arch">
+      <div class="box">
+        <h4>oauth_app.py</h4>
+        <ul>
+          <li>/connect/&lt;app&gt;</li>
+          <li>/callback/&lt;app&gt;</li>
+          <li>/call/&lt;app&gt;</li>
+          <li>/connections/&lt;user&gt;</li>
+        </ul>
+      </div>
+      <div class="arrow">→</div>
+      <div class="box">
+        <h4>Config (JSON)</h4>
+        <ul>
+          <li>oauth_provider_configs.json — urls, scopes, test_endpoint</li>
+          <li>oauth_apps.json — which of the 45 apps map to which config</li>
+          <li>env vars — client_id / client_secret per app</li>
+        </ul>
+      </div>
+      <div class="arrow">→</div>
+      <div class="box">
+        <h4>tokens.json</h4>
+        <ul>
+          <li>one row per (user, app)</li>
+          <li>access_token + refresh_token</li>
+          <li>read back on every /call</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Where the credentials actually land</h2>
+    <p class="lead">Two different kinds of secret are in play, and it's worth being precise about which is which:</p>
+    <p><strong style="color:var(--ink)">Client ID / client secret</strong> (e.g. <code>SALESFORCE_CLIENT_ID</code>) — this identifies <em>your app</em> to Salesforce, set once per provider, kept in environment variables. <strong style="color:var(--ink)">Access token / refresh token</strong> — this identifies <em>one connected user</em>, generated per connection, saved to <code>tokens.json</code>:</p>
+    <pre>{
+  <span class="k">"alice:Salesforce"</span>: {
+    <span class="k">"access_token"</span>: <span class="s">"00D5g...token"</span>,
+    <span class="k">"refresh_token"</span>: <span class="s">"5Aep8...refresh"</span>,
+    <span class="k">"connected_at"</span>: 1721000000  <span class="c">// unix timestamp</span>
+  }
+}</pre>
+    <p>Keyed as <code>user_id:app_name</code> so one person can connect to many apps, and one app can serve many people, without collisions.</p>
+  </section>
+
+  <section>
+    <h2>What's deliberately left out of this version</h2>
+    <div class="left-out">
+      <ul>
+        <li><strong>No encryption</strong> on <code>tokens.json</code> — fine for local testing, not for anything real.</li>
+        <li><strong>No refresh logic</strong> — access tokens expire; refresh_token is saved but nothing uses it yet.</li>
+        <li><strong>No database</strong> — a JSON file works until concurrent writes become a problem.</li>
+        <li><strong>The other 55 apps</strong> — API key and manually-gated apps are a different shape of problem, kept out so this file stays readable.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    Reflects <code>oauth_app.py</code>, <code>oauth_provider_configs.json</code>, and <code>oauth_apps.json</code> as uploaded — 45 OAuth2 apps out of the 100-app dataset.
+  </footer>
+
+</div>
+</body>
+</html>
