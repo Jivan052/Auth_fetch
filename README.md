@@ -1,4 +1,4 @@
-# Simple OAuth2 flow
+# Credentials acquisition flow
 
 Currently, this pipeline supports only the 45 applications that use OAuth 2.0 authentication. The remaining applications require manual intervention to generate and provide API keys or access tokens, while some are gated and require additional approval to access.
 
