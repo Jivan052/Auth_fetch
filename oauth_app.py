@@ -20,9 +20,7 @@ app. Every downstream feature you build (pull contacts from Salesforce,
 post a Slack message, whatever) is just this same pattern - stored token +
 Authorization header + your own endpoint instead of the test one below.
 
-Storage: tokens saved to tokens.json, one row per (user, app). That's it —
-no database, no encryption library, nothing fancy. Swap this file for a real
-database column once this makes sense in production; the shape stays the same.
+Storage: tokens saved to tokens.json, one row per (user, app). 
 
 Setup per app (one-time, not per user):
   1. Register your app with the provider (e.g. Salesforce Connected App,
@@ -31,11 +29,6 @@ Setup per app (one-time, not per user):
      file's config).
   3. Put the client_id/secret in environment variables.
 
-Run:
-    export VAULT... no wait, no vault here. Just:
-    export SALESFORCE_CLIENT_ID=xxx
-    export SALESFORCE_CLIENT_SECRET=yyy
-    python oauth_app.py
 """
 import json
 import os
@@ -53,7 +46,7 @@ APPS = {row["name"]: row for row in json.loads(Path("oauth_apps.json").read_text
 PROVIDER_URLS = json.loads(Path("oauth_provider_configs.json").read_text())
 
 TOKENS_FILE = Path("tokens.json")
-PENDING = {}  # state -> {user_id, app_name}   (in-memory; fine for a demo)
+PENDING = {}  # state -> {user_id, app_name}
 
 
 def _tokens() -> dict:
@@ -134,7 +127,7 @@ def connections(user_id):
     return jsonify([k.split(":")[1] for k in tokens if k.startswith(f"{user_id}:")])
 
 
-# --- Step 5: ACTUALLY USE the token — this is the part that was missing ----
+# --- Step 5: Token use
 @app.route("/call/<app_name>")
 def call_api(app_name):
     """Proves the connection works by making one real, authenticated call.
