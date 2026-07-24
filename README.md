@@ -3,25 +3,7 @@
 Currently, this pipeline supports only the 45 applications that use OAuth 2.0 authentication. The remaining applications require manual intervention to generate and provide API keys or access tokens, while some are gated and require additional approval to access.
 
 ## The whole idea, in 4 steps
-
-```
-1. User clicks "Connect Salesforce"
-        │
-        ▼
-2. Your app redirects them to Salesforce's login/consent screen
-        │
-        ▼
-3. Salesforce redirects back to your app with a temporary code
-        │
-        ▼
-4. Your app swaps that code for an access_token (one server-to-server call)
-        │
-        ▼
-   Save the token
-        │
-        ▼
-5. USE the token — call the app's real API with it (this is the actual point)
-```
+<img width="1344" height="692" alt="Screenshot 2026-07-24 at 7 20 25 PM" src="https://github.com/user-attachments/assets/4f1fb1da-bca1-421c-8a23-e97fcccf0cfe" />
 
 Steps 1–4 are just "auth" — they get you a token sitting in a file, nothing
 more. Step 5 is what makes the connection useful: take the stored token, put
