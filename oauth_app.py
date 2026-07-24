@@ -13,8 +13,9 @@ The 4 steps, mapped 1:1 to the 4 things this file does:
   4. Exchange code for a token      -> (done inside step 3's handler)
   5. ACTUALLY USE the token to call the app's real API -> GET /call/<app>
 
-Steps 1-4 only get you a token sitting in tokens.json - that's auth, not
-usage. Step 5 is the part that makes the connection actually do something:
+Steps 1-4 only get a token sitting in tokens.json.
+
+Step 5 is the part that makes the connection actually do something:
 it takes the stored token and makes a real, authenticated API call to the
 app. Every downstream feature you build (pull contacts from Salesforce,
 post a Slack message, whatever) is just this same pattern - stored token +
