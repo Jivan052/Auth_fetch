@@ -1,7 +1,7 @@
 """
-oauth_app.py — the whole OAuth2 flow, one file, one thing.
+oauth_app.py — the whole OAuth2 flow
 
-Handles ONLY the 45 apps in your dataset that use OAuth2 (Salesforce,
+As of now it handles ONLY the 45 apps in your dataset that use OAuth2 (Salesforce,
 HubSpot, Slack, GitHub, Notion, Zendesk, ...). The other 55 apps (API key /
 manual-gated) are a different, separate problem — don't mix them in here.
 
