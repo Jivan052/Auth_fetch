@@ -159,26 +159,5 @@ def call_api(app_name):
     })
 
 
-@app.route("/")
-def home():
-    return jsonify({
-        "message": "OAuth demo running.",
-        "usage": {
-            "connect": "/connect/<app_name>?user_id=<user_id>",
-            "callback": "/callback/<app_name>",
-            "connections": "/connections/<user_id>",
-            "call": "/call/<app_name>?user_id=<user_id>"
-        }
-    })
-
-
-@app.route("/favicon.ico")
-def favicon():
-    return "", 204
-
-
 if __name__ == "__main__":
-    debug_mode = os.environ.get("FLASK_DEBUG", "0").lower() in ("1", "true", "yes")
-    host = os.environ.get("HOST", "0.0.0.0")
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host=host, port=port, debug=debug_mode)
+    app.run(port=5000, debug=True)
