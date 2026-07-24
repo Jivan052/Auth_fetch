@@ -1,7 +1,6 @@
-# Simple OAuth2 flow — just the 45 apps that matter most
+# Simple OAuth2 flow
 
-Your data: 45 of your 100 apps use OAuth2 — the single biggest group.
-This is just that flow, nothing else, in one file.
+Currently, this pipeline supports only the 45 applications that use OAuth 2.0 authentication. The remaining applications require manual intervention to generate and provide API keys or access tokens, while some are gated and require additional approval to access.
 
 ## The whole idea, in 4 steps
 
