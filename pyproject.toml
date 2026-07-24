@@ -13,3 +13,6 @@ dependencies = ["flask", "requests"]
 
 [tool.flask]
 app = "oauth_app:app"
+
+[tool.vercel]
+entrypoint = "oauth_app:app"
