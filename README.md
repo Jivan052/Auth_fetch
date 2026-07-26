@@ -32,6 +32,7 @@ pip install flask requests
 # one-time setup per app: register your app with the provider to get these
 export SALESFORCE_CLIENT_ID=...
 export SALESFORCE_CLIENT_SECRET=...
+# will adding others later once salesforce is tested
 
 python oauth_app.py
 ```
