@@ -21,8 +21,8 @@ scopes change.
 |---|---|
 | `oauth_app.py` | The whole flow — 2 routes (`/connect/<app>`, `/callback/<app>`), ~90 lines |
 | `oauth_provider_configs.json` | Per-app settings: authorize_url, token_url, scopes. 5 filled in as examples (Salesforce, HubSpot, Slack, GitHub, Notion) |
-| `oauth_apps.json` | Your 45 OAuth2 apps, straight from your research pipeline — just here for reference |
-| `tokens.json` | Created automatically — where connected users' tokens land |
+| `oauth_apps.json` | 45 OAuth2 apps from research pipeline |
+| `tokens.json` | Created automatically — where connected users' tokens will be shown |
 
 ## Run it
 
